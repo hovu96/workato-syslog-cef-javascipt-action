@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/hovu96/workato-syslog-cef-javascipt-action#readme",
   "dependencies": {
-    "syslog-pro": "^1.0.0"
+    "syslog-pro": "^1.0.0",
+    "minimist": "1.2.5"
   }
 }

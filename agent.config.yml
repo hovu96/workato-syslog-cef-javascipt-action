@@ -1,0 +1,78 @@
+command_line_scripts:
+  syslog:
+    concurrency_limit: 100
+    timeout: 10
+    scripts:
+      cef:
+        name: Send CEF Message
+        command:
+          - node
+          - /path/to/repo/opa_script.js
+          - '--deviceVendor={{deviceVendor}}'
+          - '--deviceProduct={{deviceProduct}}'
+          - '--deviceVersion={{deviceVersion}}'
+          - '--deviceEventClassId={{deviceEventClassId}}'
+          - '--name={{name}}'
+          - '--severity={{severity}}'
+          - '--server.target={{target}}'
+          - '--server.protocol={{protocol}}'
+          - '--server.port={{port}}'
+        parameters:
+          - { name: deviceVendor,
+              schema: {
+                label: "Device vendor",
+                optional: false
+              }
+            }
+          - { name: deviceProduct,
+              schema: {
+                label: "Device product",
+                optional: false
+              }
+            }
+          - { name: deviceVersion,
+              schema: {
+                label: "Device version",
+                optional: false
+              }
+            }
+          - { name: deviceEventClassId,
+              schema: {
+                label: "Device event class ID",
+                optional: false
+              }
+            }
+          - { name: name,
+              schema: {
+                label: "Name",
+                optional: false
+              }
+            }
+          - { name: severity,
+              schema: {
+                label: "Severity",
+                control_type: select,
+                pick_list: [Unknown, Low, Medium, High, Very-High],
+                optional: false
+              }
+            }
+          - { name: target,
+              schema: {
+                label: "Server",
+                optional: false
+              }
+            }
+          - { name: protocol,
+              schema: {
+                label: "Protocol",
+                control_type: select,
+                pick_list: [udp, tcp],
+                optional: false
+              }
+            }
+          - { name: port,
+              schema: {
+                label: "Port",
+                optional: false
+              }
+            }

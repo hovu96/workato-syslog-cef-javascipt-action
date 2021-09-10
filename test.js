@@ -11,7 +11,7 @@ const input = {
     extensions: {},
     server: {
         // https://github.com/cyamato/SyslogPro/blob/master/docs/api.md#module_SyslogPro..Syslog
-        target: 'api.splunk.myworkato.com',
+        target: 'syslog-server.com',
         protocol: "tcp",
         port: 514,
     }
